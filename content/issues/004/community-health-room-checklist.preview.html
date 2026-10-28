@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="pandoc" name="generator"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=yes" name="viewport"/>
+<title>A Room That Lets People Participate</title>
+<style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+<style>
+@page { size: letter; margin: 0.66in 0.75in 0.72in; @bottom-center { content: "WORKING DRAFT · 28 OCT 2026  •  Page " counter(page) " of " counter(pages); font: 8pt sans-serif; color: #4b5563; } }
+html { font-family: Arial, "Noto Sans", sans-serif; color: #141a22; font-size: 10.3pt; line-height: 1.38; }
+body {max-width: none; padding:0; margin:0;}
+nav#TOC { border:1px solid #cbd5e1; padding:9px 14px; margin:10px 0 15px; border-radius:3px; background:#fafafa; font-size:9.2pt; }
+nav#TOC:before {content:"Sections"; font-weight:bold; font-size:10pt;}
+nav#TOC > ul { margin:4px 0; padding-left:20px; }
+nav#TOC li {margin:1px 0;}
+a {color:#0d4870;text-decoration:underline;}
+h1 {font-size: 20pt; margin:0 0 6px; line-height:1.15; color:#132d41;}
+h2 {font-size: 13.3pt; line-height:1.22; color:#174763; border-bottom: 1px solid #cedce6; padding-bottom:3px; margin:18px 0 8px; break-after: avoid;}
+p {margin: 7px 0; orphans:3; widows:3;}
+ul { padding-left: 23px; margin:7px 0 13px; }
+li { margin:7px 0; break-inside:avoid; }
+ul.task-list {padding-left:0; list-style-type:none; }
+ul.task-list > li {position:relative; padding-left:26px; margin:8px 0;}
+ul.task-list > li > label {display:block;}
+ul.task-list > li input[type=checkbox] {appearance:none; position:absolute; left:0; top:2px; display:inline-block; border:1.5px solid #243847; width:14px;height:14px; border-radius:1px; background:white;}
+strong {font-weight:700;}
+@media screen {body {max-width:780px; margin:auto; padding:20px;} }
+</style>
+<meta content="Working draft community-room accessibility and respiratory-health checklist; not a certification." name="description"/><style>html, body, p, li {hyphens: none !important; word-break: normal !important; } nav#TOC {margin-top:10px !important; margin-bottom:13px !important;}</style><style>@media print {h2#when-money-power-or-supplies-are-constrained {break-before: page;}}</style></head>
+<body>
+<h1 id="a-room-that-lets-people-participate">A Room That Lets People
+Participate</h1>
+<p><em>Practical community health checklist — working draft, 28 October
+2026</em></p>
+<p><strong>For:</strong> a mutual-aid room, library meeting, shared
+kitchen, repair café, community gathering, or volunteer shift. Reuse and
+adapt to the space. <strong>Not a medical, building-code, or workplace
+compliance certificate.</strong> No one should have to disclose their
+diagnosis to participate.</p><nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#before-gathering" id="toc-before-gathering">Before
+gathering</a></li>
+<li><a href="#during-gathering" id="toc-during-gathering">During
+gathering</a></li>
+<li><a href="#after-gathering--improve-the-actual-room" id="toc-after-gathering--improve-the-actual-room">After gathering —
+improve the actual room</a></li>
+<li><a href="#when-money-power-or-supplies-are-constrained" id="toc-when-money-power-or-supplies-are-constrained">When money, power
+or supplies are constrained</a></li>
+<li><a href="#reading-and-verification" id="toc-reading-and-verification">Reading and verification</a></li>
+</ul>
+</nav>
+<h2 id="before-gathering">Before gathering</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"/><strong>Participation without
+attendance:</strong> Offer telephone, online, written, or asynchronous
+participation. Make staying home when sick a real option without
+penalty. Check disability access without asking for medical
+history.</label></li>
+<li><label><input type="checkbox"/><strong>Cleaner air:</strong> Check
+that the <em>actual building operator</em> is maintaining ventilation
+and appropriate filters. Prefer appropriately sized cleaners with
+independently stated performance (for example, rated HEPA units) when
+feasible. When commercial devices are unavailable, a well-built DIY
+box-fan/filter cleaner may help: use <a href="https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-hvac-filters-and-respiratory-viruses">EPA's
+assembly, newer-fan safety and maintenance guidance</a>. DIY output
+varies, so do not claim measured protection without measurement.
+Consider outdoors only when safe and accessible.</label></li>
+<li><label><input type="checkbox"/><strong>Weather and outdoor
+air:</strong> Check whether opening windows would bring in wildfire
+smoke, bad air, dangerous heat or cold. Do not trade respiratory
+protection for thermal or pollution hazards.</label></li>
+<li><label><input type="checkbox"/><strong>Respiratory
+protection:</strong> Offer good-quality, well-fitting masks or
+respirators without making people ask. Support people who choose to mask
+and avoid compulsory close contact.</label></li>
+<li><label><input type="checkbox"/><strong>Food, water and
+sanitation:</strong> Ensure drinking water, handwashing, accessible
+bathrooms, proper food storage, and clearly identified safe meals are
+available. A HEPA filter does not make food safe.</label></li>
+<li><label><input type="checkbox"/><strong>Pacing and rest:</strong>
+Provide seats, rest breaks and an exit/re-entry option. Don't make
+attendance contingent on exertion. For post-exertional malaise, avoid
+forced graded activity or "push through it" expectations.</label></li>
+<li><label><input type="checkbox"/><strong>Safe escalation:</strong>
+Know who can call emergency services, where the exits are, how to reach
+ordinary medical care, and what to do when someone becomes unwell. Do
+not substitute volunteer diagnosis for care.</label></li>
+</ul>
+<h2 id="during-gathering">During gathering</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"/>Confirm the room ventilation and air
+cleaner are <strong>actually running</strong> (a poster saying
+"ventilated" isn't evidence).</label></li>
+<li><label><input type="checkbox"/>Keep doors, accessible routes and
+emergency exits unobstructed; provide seating and adequate
+rest.</label></li>
+<li><label><input type="checkbox"/>Let people leave or switch to remote
+participation without explanation; do not pressure people to remove
+masks.</label></li>
+<li><label><input type="checkbox"/>Keep indoor air, excessive sound,
+scent, temperature and access barriers in view alongside infection
+prevention.</label></li>
+</ul>
+<h2 id="after-gathering--improve-the-actual-room">After gathering —
+improve the actual room</h2>
+<ul class="task-list">
+<li><label><input type="checkbox"/>Invite one optional, nonidentifying
+question: "What made this safer or harder to attend?" Let people
+decline; a small room cannot promise anonymity, and free-text details
+can reveal identity.</label></li>
+<li><label><input type="checkbox"/>Record the date, room, equipment
+maintenance, supplies, accessibility problems and changes; <strong>do
+not</strong> record participants' identities, diagnoses, biometrics,
+test results or inferred health status.</label></li>
+<li><label><input type="checkbox"/>Assign a real person responsible for
+each fix, with a review date, and check completion at the next
+event.</label></li>
+<li><label><input type="checkbox"/>Communicate corrected measures in
+ordinary language; do not advertise a room as "infection-proof" or a
+verified number of air changes without a real measurement.</label></li>
+</ul>
+<h2 id="when-money-power-or-supplies-are-constrained">When money, power
+or supplies are constrained</h2>
+<ul>
+<li><strong>No new filters or masks.</strong> Adaptation: pool community
+supplies, reduce crowding, offer remote options, and consider EPA-guided
+DIY cleaning when a commercial cleaner is unavailable. <strong>Safety
+boundary:</strong> do not claim untested devices or dirty filters
+perform as rated.</li>
+<li><strong>Electrical outage.</strong> Adaptation: if outdoor
+conditions and accessibility permit, meet outside; otherwise postpone or
+go asynchronous. <strong>Safety boundary:</strong> an unplugged cleaner
+does nothing; never run fuel generators indoors or endanger
+medical-device power.</li>
+<li><strong>Poor outdoor air or severe weather.</strong> Adaptation:
+maintain safe building air handling, postpone, or change format.
+<strong>Safety boundary:</strong> opening windows may be harmful during
+smoke, pollution, or temperature extremes.</li>
+<li><strong>Illness circulating.</strong> Adaptation: support staying
+home without punishment, reduce indoor exposure, and help deliver
+essentials. <strong>Safety boundary:</strong> no informal medical
+registry or pressure to reveal test results.</li>
+<li><strong>Accessibility gaps.</strong> Adaptation: change schedule,
+location, transport, format, lighting, seating, or activity demands.
+<strong>Safety boundary:</strong> "Everyone is welcome" is not evidence
+everyone can attend.</li>
+</ul>
+<h2 id="reading-and-verification">Reading and verification</h2>
+<ul>
+<li><a href="https://www.cdc.gov/respiratory-viruses/prevention/air-quality.html">CDC:
+Cleaner air</a> — ventilation, outdoor meetings, HEPA filtration, and
+the need to use actual building capacity.</li>
+<li><a href="https://www.cdc.gov/respiratory-viruses/prevention/masks.html">CDC:
+Respirator and mask protection</a> — fit and type matter.</li>
+<li><a href="https://www.cdc.gov/respiratory-viruses/prevention/precautions-when-sick.html">CDC:
+Prevention when sick</a> — staying home and added precautions, including
+organization policies.</li>
+<li><a href="https://www.epa.gov/indoor-air-quality-iaq/air-cleaners-hvac-filters-and-respiratory-viruses">EPA:
+Air cleaners and respiratory viruses</a> — tested commercial devices are
+preferable for routine use when feasible, but well-built DIY cleaners
+may be effective when commercial devices are unavailable; build and
+operate safely.</li>
+<li><a href="https://www.cdc.gov/long-covid/hcp/clinical-guidance/index.html">CDC:
+Long COVID clinical guidance</a> and <a href="https://www.cdc.gov/me-cfs/hcp/clinical-care/treating-the-most-disruptive-symptoms-first-and-preventing-worsening-of-symptoms.html">ME/CFS
+post-exertional malaise guidance</a> — limitations, validation,
+individualized pacing.</li>
+</ul>
+<p><strong>Scope:</strong> A template for an operator's actual room, not
+a claim the 561 Group has deployed, measured, certified or staffed a
+health facility. It requires local hazard, accessibility and scientific
+review before being represented as a tested intervention.</p>
+</body>
+</html>
