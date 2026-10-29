@@ -50,3 +50,58 @@ jobs:
           \`\`\`
 
           Public sections hold the data that parameterizes Operations for external publics. Put the code in its Red Cup Engineering owner (\`*-engineering-services-section\`) and reference it from this section's data. Rule: [science-engineering-operations-parameterize-in-order](https://github.com/561-group/561-group-services-section/blob/main/lib/agency/rules/science-engineering-operations-parameterize-in-order.json)."
+
+  # Consumer-facing qualification only: production implementation remains in Red Cup Engineering.
+  # An explicit draft date is a deterministic fixture, not an observed publication timestamp.
+  compose-projections:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Detect the issue 004 candidate
+        id: candidate
+        shell: bash
+        run: |
+          if [[ -f content/issues/004/issue-004.json ]]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Check out the original Red Cup composer at an exact source revision
+        if: steps.candidate.outputs.present == 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: red-cup-engineering/email-newsletter-engineering-services-section
+          ref: 731e02b84adc2b70f0c11f0a2b8b56496472fdec
+          path: red-cup-composer
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        if: steps.candidate.outputs.present == 'true'
+        with:
+          node-version: '22'
+      - name: Install original composer dependencies
+        if: steps.candidate.outputs.present == 'true'
+        run: |
+          npm install --prefix red-cup-composer --ignore-scripts --no-audit --no-fund --package-lock=false
+      - name: Execute original Node composer and compare every written carrier
+        if: steps.candidate.outputs.present == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/issue-004-composed"
+          node red-cup-composer/scripts/compose-issue.mjs \
+            content/issues/004/issue-004.json \
+            "$RUNNER_TEMP/issue-004-composed" \
+            "https://secondday.561.group/issues/004" \
+            "2026-10-28T00:00:00Z" rss
+          diff -u content/issues/004/issue.md "$RUNNER_TEMP/issue-004-composed/issue.md"
+          diff -u content/issues/004/issue.paste.html "$RUNNER_TEMP/issue-004-composed/issue.paste.html"
+          diff -u content/issues/004/issue.feed-item.rss.xml "$RUNNER_TEMP/issue-004-composed/issue.feed-item.rss.xml"
+          sha256sum "$RUNNER_TEMP"/issue-004-composed/*
+      - name: Retain generated draft carriers as a review artifact
+        if: steps.candidate.outputs.present == 'true' && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: issue-004-original-composer-preview
+          path: ${{ runner.temp }}/issue-004-composed/
+          retention-days: 7
