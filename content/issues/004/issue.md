@@ -30,7 +30,7 @@ Consider a reading group meeting in a small room. It can do five things without 
 
 Then the organizer does the difficult part: checks whether these measures actually happened. The filter was replaced, the device ran, someone could really join remotely, and no participant was pressured to disclose their condition. If the room cannot meet its ordinary safety and accessibility obligations, the group should move or cancel, not market itself as protected because it posted a health slogan.
 
-We prepared an editable working protocol: **[A Room That Lets People Participate](https://github.com/causeway-services/public-health-education-newsletter-services-section/blob/6a18b0e940a058daed30abd4400ce7ec38995447/content/issues/004/community-health-room-checklist.md)**. It records observable arrangements and correction work rather than personal health histories. A responsible operator can try it on a real room; it is not yet validated as a clinical or building-safety instrument.
+We prepared an editable working protocol: **[A Room That Lets People Participate](https://github.com/causeway-services/public-health-education-newsletter-services-section/blob/d4477449d9830669f7b2639c56c808fb791e83ba/content/issues/004/community-health-room-checklist.md)**. It records observable arrangements and correction work rather than personal health histories. A responsible operator can try it on a real room; it is not yet validated as a clinical or building-safety instrument.
 
 **Sources:** [cdcsick2025](https://www.cdc.gov/respiratory-viruses/prevention/precautions-when-sick.html), [cdcair2025](https://www.cdc.gov/respiratory-viruses/prevention/air-quality.html)
 
@@ -50,7 +50,7 @@ A health-positive group does not stop at masks. It asks whether people can drink
 
 Good public health should be easy to use on an ordinary Wednesday. It should not demand that everyone become a nutrition scientist, purchase a microbiome test, wear a tracker, or log every symptom to deserve respect.
 
-Our [companion checklist](https://github.com/causeway-services/public-health-education-newsletter-services-section/blob/6a18b0e940a058daed30abd4400ce7ec38995447/content/issues/004/community-health-room-checklist.md) is deliberately modest. It does not tell a group it has solved public health. It asks it to alter one actual material environment and account for whether that change helps anyone.
+Our [companion checklist](https://github.com/causeway-services/public-health-education-newsletter-services-section/blob/d4477449d9830669f7b2639c56c808fb791e83ba/content/issues/004/community-health-room-checklist.md) is deliberately modest. It does not tell a group it has solved public health. It asks it to alter one actual material environment and account for whether that change helps anyone.
 
 **Sources:** [cdclong2026](https://www.cdc.gov/long-covid/hcp/clinical-guidance/index.html), [cdcpem2024](https://www.cdc.gov/me-cfs/hcp/clinical-care/treating-the-most-disruptive-symptoms-first-and-preventing-worsening-of-symptoms.html)
 
