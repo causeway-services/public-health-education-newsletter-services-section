@@ -1,4 +1,4 @@
-# The Second Day
+# @causeway-services/public-health-education-newsletter-services-section
 
 <!-- 561-group-standards:badges:start -->
 [![Causeway Services](https://img.shields.io/badge/561%20Group-Causeway%20Services-115e69)](https://github.com/causeway-services)
@@ -6,6 +6,8 @@
 [![Indigenous data: CARE](https://img.shields.io/badge/Indigenous%20data-CARE-4b6f44)](https://github.com/causeway-services/.github/blob/main/GOVERNANCE.md)
 [![Tips welcome](https://img.shields.io/badge/tips-welcome-d4a017)](https://github.com/561-group/.github/blob/main/TIPS.md)
 <!-- 561-group-standards:badges:end -->
+
+Publication lane for the health-education named-subscriber newsletter: verifies and re-composes one issue directory's renderings, creates a Buttondown draft, and records a publication receipt.
 
 The Second Day is a health-synthesis newsletter about infection-associated chronic illness, including definitions, proposed mechanisms, and care evidence. Its canonical issue data and Markdown, paste-ready HTML, and feed renderings stay in `content/issues/`. The cited scientific corpus is shared with [the health curriculum](../health-education-curriculum-services-section/README.md) and the [medical-science material](../../../../../../../../../science-services-section/services/natural-science-services-section/services/biological-science-services-section/services/medical-science-services-section).
 
